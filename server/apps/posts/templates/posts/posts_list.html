@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 템플릿 문법 사용하기 -->
+
+    <a href="posts/create">글 작성하러가기 😊</a>
+    <hr />
+
+    {% for post in posts %}
+    <p><a href="/posts/{{ post.pk }}">{{post.title}}</a></p>
+    <small>: {{ post.user }}</small>
+    <small>: {{ post.region }}</small>
+    <hr>
+    {% endfor %}
+
+</body>
+</html>
