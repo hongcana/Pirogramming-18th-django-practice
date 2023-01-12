@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect 
+from django.http.request import HttpRequest
 from server.apps.posts.models import Post
 
 # args, keyword args(kwargs)
@@ -11,7 +12,7 @@ def posts_list(request, *args, **kwargs):
     text = request.GET.get('text')
     if text:
         posts = posts.filter(content__contains = text)
-        
+
     return render(request, "posts/posts_list.html", {"posts":posts})
     # context = template으로 데이터를 전달
 
