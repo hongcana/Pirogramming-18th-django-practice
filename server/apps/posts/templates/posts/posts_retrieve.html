@@ -11,3 +11,10 @@
 <small> 작성일: {{post.created_at}} </small>
 <br />
 <small> 수정일: {{post.updated_at}} </small>
+
+<hr />
+<a href="/posts/{{ post.id }}/update">수정하기</a>
+<form action="/posts/{{ post.id }}/delete" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제하기">
+</form>
