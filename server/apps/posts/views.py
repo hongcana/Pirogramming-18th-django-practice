@@ -8,7 +8,10 @@ def hello_world(request, *args, **kwargs):
 
 def posts_list(request, *args, **kwargs):
     posts = Post.objects.all()
-    print({"posts":posts})
+    text = request.GET.get('text')
+    if text:
+        posts = posts.filter(content__contains = text)
+        
     return render(request, "posts/posts_list.html", {"posts":posts})
     # context = template으로 데이터를 전달
 
